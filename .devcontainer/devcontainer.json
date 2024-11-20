@@ -1,0 +1,28 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "os-provided"
+    },
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "version": "latest"
+    }
+  },
+  "runArgs": [
+    "--name", "example_devcontainer",
+    "--env-file",".env"
+  ],
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postAttachCommand": "mkdir -p /tmp/pants/ && sudo chown $USER:$USER /tmp/pants && echo '{ \"credsStore\": \"\" }' > ~/.docker/config.json",
+  "mounts": [
+  "source=/tmp/pants,target=/tmp/pants,type=bind",
+  "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "tamasfe.even-better-toml"
+      ]
+    }
+  }
+}

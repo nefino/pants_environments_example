@@ -1,0 +1,37 @@
+[GLOBAL]
+pants_version = "2.25.1"
+named_caches_dir = "/tmp/pants/named_caches"
+colors = true
+unmatched_build_file_globs = "error"
+
+pants_workdir = ".cache_and_logs/.pants.d"
+pants_subprocessdir = ".cache_and_logs/.pids"
+
+backend_packages = [
+  'pants.backend.python',
+  'pants.backend.docker',
+]
+
+# https://github.com/pantsbuild/pants/issues/17851
+local_execution_root_dir = "/tmp/pants/"
+
+build_file_prelude_globs = ["macros.py"]
+
+[python]
+interpreter_constraints = ['CPython==3.12.*']
+enable_resolves = true
+
+[python.resolves_to_no_binary]
+__default__= ["pyogrio"]
+
+[environments-preview.names]
+gdal-362-environment = "myapp:gdal-362-docker-environment"
+gdal-384-environment = "myapp:gdal-384-docker-environment"
+
+[docker]
+run_args = ["--rm"]
+use_buildx = true
+
+[pytest]
+xdist_enabled = true
+config_discovery = true

@@ -1,0 +1,11 @@
+FROM ubuntu:noble AS base
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends libgdal-dev python3.12 python3-venv gcc python3-dev build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+FROM base
+
+COPY myapp.src/main_384.pex /app/main.pex
+WORKDIR /app
+ENTRYPOINT ["/app/main.pex"]
