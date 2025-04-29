@@ -4,6 +4,7 @@ python_requirements(
 
 python_sources()
 
-local_environment(
-    name="local-environment",
+docker_environment(
+    name="test-docker-environment",
+    image="python:3.12"
 )

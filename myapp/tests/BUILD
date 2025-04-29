@@ -14,5 +14,5 @@ python_test(
 python_test(
     name="env_inside_environment_test.py",
     source="env_inside_environment_test.py",
-    environment="myapp-environment",
+    environment="test-environment",
 )

@@ -25,6 +25,7 @@ enable_resolves = true
 __default__= ["pyogrio"]
 
 [environments-preview.names]
+test-environment="//:test-docker-environment"
 gdal-362-environment = "myapp:gdal-362-docker-environment"
 gdal-384-environment = "myapp:gdal-384-docker-environment"
 
