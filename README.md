@@ -18,7 +18,7 @@ run tests inside custom environments.
   https://github.com/pantsbuild/pants/issues/17958.
 - Allow the use of
   [macros](https://www.pantsbuild.org/stable/docs/writing-plugins/macros) inside
-  `__defaults__` in `BUILD` files with Pants environments set. Example: Moving
+  `__defaults__` in `BUILD` files with Pants environments set. Issue: https://github.com/pantsbuild/pants/issues/22376. Example: Moving
   the `__default__` block from `myapp/tests/BUILD` to `myapp/BUILD` results in
   this error:
   ```
